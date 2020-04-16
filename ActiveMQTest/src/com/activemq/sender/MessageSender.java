@@ -24,6 +24,8 @@ public class MessageSender {
         ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
         Connection connection = connectionFactory.createConnection();
         connection.start();
+        
+        System.out.println("Started");
          
         //Creating a non transactional session to send/receive JMS message.
         Session session = connection.createSession(false,Session.AUTO_ACKNOWLEDGE);  
