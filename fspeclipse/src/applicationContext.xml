@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config />
+
+
+	<bean id="textEditor" class="com.javatpoint.TextEditor" autowire ="byName" >
+	</bean>
+
+
+	<bean id="spellChecker" class="com.javatpoint.SpellChecker" autowire="byName">
+	</bean>
+
+<bean class ="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+
+	<!-- <bean id="textEditor" class="com.javatpoint.TextEditor"> </bean> <bean 
+		id="spellChecker" class="com.javatpoint.SpellChecker"> </bean> -->
+	<!-- <bean class="org.springframework.beans.factory.Annotation.AutowiredAnnotationBeanPostProcessor.class"/> -->
+
+
+
+	<!--<bean id="studentbean" class="com.javatpoint.Student"> <property name="name" 
+		value="Ramola Vats"></property> </bean> </beans> -->
+	<!-- <bean id="student" class="com.javatpoint.Student"> <property name="name" 
+		value="Ramola" /> <property name="age" value="11" /> </bean> <bean id="b" 
+		class="com.javatpoint.B"></bean> <bean id="a" class="com.javatpoint.A" autowire="constructor"></bean> 
+		</beans> <bean id="a" class="com.javatpoint.Address"> <constructor-arg value="Delhi"></constructor-arg> 
+		<constructor-arg value="Delhi"></constructor-arg> <constructor-arg value="India"></constructor-arg> 
+		</bean> <bean id="e" class="com.javatpoint.Employee"> <constructor-arg value="26" 
+		type="int"></constructor-arg> <constructor-arg value="Ramola"></constructor-arg> 
+		</bean> <constructor-arg> <ref bean="a"/> </constructor-arg> <bean id="e1" 
+		class="com.javatpoint.Employee" parent="e"> <constructor-arg ref="a"></constructor-arg> 
+		</bean> -->
+</beans>
