@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+<link rel="icon" type="image/png" href="resources/images/favicon.ico">
+<meta name="_csrf" content="d3861682-f52d-4d51-864c-f4e03efc2975" />
+<meta name="_csrf_header" content="X-CSRF-TOKEN" />
+<title>Income Tax Department | Compliance Portal | Project
+	Insight</title>
+</head>
+<body oncontextmenu="return false">
+
+	<div class="top-area">
+		
+<link href="resources/css/jquery-ui.min.css" rel="stylesheet"
+	type="text/css">
+<link rel="stylesheet" href="resources/css/CustomFunctionality.min.css">
+<link href="resources/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css">
+<link href="resources/css/ui.jqgrid.css" rel="stylesheet"
+	type="text/css">
+<!-- <link href="resources/css/style.css" rel="stylesheet" type="text/css"> -->
+<link href="resources/css/style_cases.css" rel="stylesheet"
+	type="text/css">
+<!-- new-css Added by Manoj -->
+<link href="resources/css/new-css.css" rel="stylesheet" type="text/css">
+<link href="resources/css/breadcrumb.css" rel="stylesheet" type="text/css">
+<script src="resources/js/libs/jquery-1.10.2.min.js"></script>
+<script>
+	var jq = jQuery.noConflict();
+</script>
+<script src="resources/js/libs/jquery-ui.min.js"></script>
+<script src="resources/js/libs/CustomFunctionality.min.js"></script>
+
+<script src="resources/js/libs/jquery.searchabledropdown.js"></script>
+<script src="resources/js/libs/jquery.validate.min.js"></script>
+<script src="resources/js/services/validator.js"></script>
+
+<script src="resources/js/libs/grid.locale-en.js"></script>
+<script src="resources/js/libs/jquery.jqGrid.js"></script>
+<script src="resources/js/libs/xss.js"></script>
+<script src="resources/js/services/application-constants.js"></script>
+<script src="resources/js/services/application-common.js"></script>
+<script src="resources/js/services/ajax.js"></script>
+<script src="resources/js/services/ui-components.js"></script>
+<script src="resources/js/services/rp-custom-components.js"></script>
+<script src="resources/js/services/load-external-scripts.js"></script>
+<script src="resources/js/services/customAlert.js"></script>
+<script src="resources/js/controller/uicontroller.js"></script>
+
+<header>
+	<div class="container container-white">
+		<div class="row">
+			<a href="/compliance/complianceHome" class="portal-logo"
+				style="cursor: auto"><img src="resources/images/portal-logo.png" /></a>
+			<a href="/compliance/complianceHome" class="insight-logo"
+				style="cursor: auto"><img
+				src="resources/images/insight-logo.png" /></a>
+		</div>
+	</div>
+
+
+	<!-- <div class="container container-white">
+		<div class="row header-two">
+			<div class="navbar">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#mynav">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+				</div>
+				<div id="mynav" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a><img src="resources/images/icon-home02.png"></a></li>
+						<li class="active"><a href="compliancecases" id="">e-Verification</a></li>
+						<li><a id="" href="userConfirmation">PAN Related Issues</a></li>
+						<li><a id="" href="confirmations">Confirmations</a></li>
+						<li><a id="" href="userConfirmation">Communication</a></li>
+						<li><a id="" href="show-download-page">Resources</a></li>
+						<li><a id="" href="showfeedback">Feedback</a></li>
+					</ul>
+					<ul class="nav navbar-nav" class='navhelp'>
+						<li><a id="" href="hd">Help</a></li>
+					</ul>
+					<form class="navbar-form navbar-right">
+						<input id="" class="form-control search-bar"
+							placeholder="Search..." type="text" />
+						<button class="btn-search" type="submit">Search</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<div class="container container-white" style="visibility:hidden;">
+		<div class="row header-two">
+			<div class="navbar">
+				<div id="mynav" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="home"><img
+								src="resources/images/icon-home02.png"></a></li>
+						<li class="dropdown-sec"><a href="ecampaignview">e-Campaign</a>
+							</li>
+						<li class="dropdown-sec"><a
+							href="javascript:void(0)" id="">e-Verification</a>
+							<ul class="dropdown-menu">
+								<li><a href="javascript:void(0)">e-Verification</a></li>
+								<li><a href="/compliance/compliancecases">e-Verification-Prior to A.Y. 2019-20</a></li>
+							</ul></li>
+						<!-- <li><a href="/compliance/confirmations" id="">e-Confirmation</a></li> -->
+						<li><a href="show-download-page">Resources</a></li>
+						<li><a href="showfeedback">Feedback</a></li>
+						<li><a href="hd" style="color: #fff;">Help</a></li>
+					</ul>
+
+
+					<!--<form class="navbar-form navbar-right">							<input id="" class="form-control search-bar" placeholder="Search..." type="text"/>							<button class="btn-search" type="submit">Search</button>						</form>-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container" style="visibility:hidden;">
+		<div class="row header-three" id="userNameId">
+
+			<a class="welcome">Welcome 
+				<span class="userNameId" style="display: none;"></span> 
+				<span id="loggedInPANName" >XYZ</span>
+			</a> 
+			<a
+				href="/compliance/logout" class="logoutbtn" type="submit"
+				onclick="alert('You will be redirected to Compliance Portal home page');">Logout</a>
+
+		</div>
+	</div>
+	<script type="text/javascript">
+		var aobj = jq('#mynav ul:nth-child(1)>li a');
+		aobj.parent().removeClass('active');
+		jq.each(aobj, function(i, v) {
+			if (v == window.location.href)
+				jq(v).parent().addClass('active');
+		})
+	</script>
+</header>
+
+		<script type="text/javascript"
+			src="resources/js/pagescript/compliancecases/complianceconstants.js"></script>
+		<script type="text/javascript"
+			src="resources/js/pagescript/compliancecases/compliancecontroller.js"></script>
+		<script type="text/javascript"
+			src="resources/js/pagescript/compliancecases/complianceControllerInfo.js"></script>
+		<script type="text/javascript"
+			src="resources/js/pagescript/compliancecases/complianceControllerDOMProcess.js"></script>
+		<section>
+			<div class="row">
+				<div class="container container-new-bg">
+					<div class="row row-management">
+	                    <div class="col-md-4 col-sm-6">
+	                        <a href="javascript:void(0)">
+	                            <div class="serviceBox orange">
+	                                <div class="service-icon">
+	                                    <img src="resources/images/lock.png">
+	                                </div>
+	                                <h3 class="title" style="color:#b5b5b5;">Annual Information Statement</h3>
+	                            </div>
+	                        </a>
+	                    </div>
+	                    <div class="col-md-4 col-sm-6">
+	                        <a href="ecampaignview">
+	                            <div class="serviceBox orange">
+	                                <div class="service-icon">
+	                                    <img src="resources/images/emailer.png">
+	                                    <span class="notification" style="display:none;"></span>
+	                                </div>
+	                                <h3 class="title">e-Campaign</h3>
+	                            </div>
+	                        </a>
+	                    </div>
+	                    <div class="col-md-4 col-sm-6">
+	                        <a href="javascript:void(0)">
+	                            <div class="serviceBox orange">
+	                                <div class="service-icon">
+	                                    <img src="resources/images/e-verifaction.png">
+	                                </div>
+	                                <h3 class="title" style="color:#b5b5b5;">e-Verification</h3>
+	                            </div>
+	                        </a>
+	                    </div>
+                </div>
+                <div class="row row-management">
+                    <div class="col-md-4 col-sm-6">
+                        <a href="javascript:void(0)">
+                            <div class="serviceBox orange">
+                                <div class="service-icon">
+                                    <img src="resources/images/logoout.png">
+                                </div>
+                                <h3 class="title" style="color:#b5b5b5;">Information Access History</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <a href="ecampaignhistoryview">
+                            <div class="serviceBox orange">
+                                <div class="service-icon">
+                                    <img src="resources/images/History.png">
+                                </div>
+                                <h3 class="title">e-Campaign History</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <a href="javascript:void(0)">
+                            <div class="serviceBox orange">
+                                <div class="service-icon">
+                                    <img src="resources/images/vHistory.png">
+                                </div>
+                                <h3 class="title" style="color:#b5b5b5;">e-Verification History</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row row-management">
+                    <div class="col-md-4 col-sm-6">
+                        <a href="show-download-page">
+                            <div class="serviceBox orange">
+                                <div class="service-icon">
+                                    <img src="resources/images/Resources.png">
+                                </div>
+                                <h3 class="title">Resources</h3>
+                            </div>
+                        </a>
+                    </div>                    
+                    <div class="col-md-4 col-sm-6">
+                        <a href="javascript:void(0)">
+                            <div class="serviceBox orange">
+                                <div class="service-icon">
+                                    <img src="resources/images/Assistant.png">
+                                </div>
+                                <h3 class="title" style="color:#b5b5b5;">Insight Virtual Assistant(IVA)
+                                </h3>
+                            </div>
+                        </a>
+                    </div>
+					<div class="col-md-4 col-sm-6">
+                        <a href="hd">
+                            <div class="serviceBox orange">
+                                <div class="service-icon">
+                                    <img src="resources/images/help.png">
+                                </div>
+                                <h3 class="title">Help</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<style>
+.verbar {
+	background: #ed7d31;
+}
+
+.combar {
+	background: #00b050;
+}
+
+.combar, .verbar {
+	text-align: center;
+	padding: 10px;
+}
+
+.combarsub {
+	background: #92d050;
+}
+
+.verbarsub {
+	background: #ffc000;
+}
+
+.combarsub, .verbarsub {
+	text-align: center;
+	padding: 7px;
+	margin-top: 10px;
+}
+
+.combar a, .verbar a {
+	font-weight: bold;
+	color: #fff;
+}
+
+.combar a span, .verbar a span {
+	font-weight: normal;
+	padding-top: 35px;
+	display: block;
+}
+
+.combarsub a, .verbarsub a {
+	font-weight: bold;
+	color: #555;
+    padding: 5px;
+    font-size: 13px
+}
+
+.conbar1, .conbar2, .conbar3, .conbar4 {
+	width: 46%;
+	float: left;
+	height: 95px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	line-height: 96px;
+	text-align: center;
+}
+
+.conbar1 a, .conbar2 a, .conbar3 a, .conbar4 a {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+}
+
+.conbar1, .conbar4 {
+	background: #bfbfbf;
+}
+
+.conbar2 {
+	background: #ffe699;
+}
+
+.conbar3 {
+	background: #ffff00;
+}
+
+.col-md-4 {
+	margin-bottom: 10px;
+}
+
+.container-new-bg {
+    background-image: url(resources/images/background.png);
+    padding-bottom: 30px;
+}
+
+.row-management {
+    margin-top: 30px;
+}
+
+.serviceBox {
+    background: #FFF;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    padding: 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease 0s;
+    height: 180px;
+    box-shadow: 3px 4px 4px 2px #e8e8e8;
+    border: 1px solid #ccc;
+}
+
+.serviceBox .service-icon {
+    color: #fff;
+    font-size: 50px;
+    width: 120px;
+    height: 60px;
+    line-height: 50px;
+    margin: 20px auto 40px;
+    display: block;
+    position: relative;
+}
+
+.serviceBox.orange .title {
+    color: #444444;
+}
+
+.serviceBox .title {
+    color: #DA4155;
+    font-size: 19px;
+    font-weight: normal;
+    margin: 0 0 10px;
+    transition: all 0.3s ease 0s;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.serviceBox .description {
+    color: #6f6f6f;
+    font-size: 14px;
+    line-height: 27px;
+}
+
+.row-management a {	
+	padding: 0px;
+}
+.serviceBox.orange:hover {
+    border: 2px solid #348eca;
+}
+.serviceBox:hover .title {
+    letter-spacing: 1px;
+}
+
+.dropdown-sec:hover .dropdown-menu {
+    display: block;
+    padding: 0;
+}
+
+.dropdown-sec .dropdown-menu li a {
+    color: #333;
+}
+
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+
+.navbar-nav li a {
+    color: #ffffff;
+    padding: 1px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    line-height: 26px;
+}
+
+
+.dropdown-menu {
+    top: auto !important;
+    left: 0 !important;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175) !important;
+}
+
+
+.dropdown-sec .dropdown-menu li {
+    padding: 0px 10px 9px 0;
+    border-bottom: 1px solid #b0b0b0;
+}
+
+.dropdown-sec .dropdown-menu {
+    background: #f4f4f4;
+}
+.notification {
+    margin-top: 93px;
+    float: right;
+    margin-right: -54px;
+    height: 30px;
+    background-color: #ed2729;
+    font-size: 18px;
+    width: 30px;
+    border-radius: 22px;
+    padding: 0px;
+    line-height: 30px;
+}
+</style>
+<script type="text/javascript">
+jq(document).ready(function(){
+	token = jq("meta[name='_csrf']").attr("content");
+	header = jq("meta[name='_csrf_header']").attr(
+			"content");
+	var getecompaigncountdata=ComplianceController.getecompaign();
+	if(getecompaigncountdata.pendingCnt != undefined && getecompaigncountdata.pendingCnt != null )
+	{
+		jq(".notification").text(getecompaigncountdata.pendingCnt).show();
+	}
+	else
+	{
+		jq(".notification").hide();
+	}		
+});
+</script>
+
+	<!--Footer Start-->
+
+<footer>
+	<div class="row">
+		<div class="container">
+			<!-- <a href="#">Disclaimer</a><br> -->
+			<a>Copyright 2017 © Income Tax Department. All Rights Reserved.</a>
+		</div>
+	</div>
+</footer>
+<!--Footer End-->
+<!-- jQuery Library 1.11.2 -->
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "Compliance-Portal",
+  "version": "1.0.0",
+  "description": "Compliance Portal Description",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "Gajanan Kulkarni",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^8.2.0"
+  }
+}
