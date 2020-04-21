@@ -12,7 +12,7 @@
                 class="form-control">
             <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
                 <div *ngIf="f.name.errors.required">Name is required.</div>
-                <div *ngIf="f.name.errors.minlength">Name should be 3 character.</div>
+                <div *ngIf="f.name.errors.minlength">Name must be more than 3 characters.</div>
             </div>
         </div>
        
@@ -25,7 +25,7 @@
                 class="form-control">
             <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
                 <div *ngIf="f.email.errors.required">Email is required.</div>
-                <div *ngIf="f.email.errors.email">Please, enter valid email address.</div>
+                <div *ngIf="f.email.errors.email">Enter valid email address.</div>
             </div>
         </div>
        
