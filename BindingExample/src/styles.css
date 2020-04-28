@@ -1,0 +1,19 @@
+body
+{
+    background-color: rgb(236, 224, 208);
+    
+}
+div{
+    outline: solid;
+    padding-bottom: 30px;
+    margin: 130px 400px;
+    padding-top: 100px;
+    text-align: center;
+}
+input
+{
+    border: 1px solid black;
+}
+
+
+/* You can add global styles to this file, and also import other style files */
