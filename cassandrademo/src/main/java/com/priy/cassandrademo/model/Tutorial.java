@@ -1,6 +1,10 @@
 package com.priy.cassandrademo.model;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
@@ -15,6 +19,20 @@ public class Tutorial {
 	private String description;
 	private boolean published;
 	private List<String> email;
+	private Set<BigDecimal> phone;
+	private Map<String,String> course;
+
+	public Tutorial(UUID id, String title, String description, boolean published, List<String> email,
+			Set<BigDecimal> phone, Map<String, String> course) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.published = published;
+		this.email = email;
+		this.phone = phone;
+		this.course = course;
+	}
 
 	public Tutorial() {
 
@@ -66,6 +84,24 @@ public class Tutorial {
 
 	public void setEmail(List<String> email) {
 		this.email = email;
+	}
+	
+	
+
+	public Set<BigDecimal> getPhone() {
+		return phone;
+	}
+
+	public void setPhone(Set<BigDecimal> phone) {
+		this.phone = phone;
+	}
+
+	public Map<String, String> getCourse() {
+		return course;
+	}
+
+	public void setCourse(Map<String, String> course) {
+		this.course = course;
 	}
 
 	@Override
