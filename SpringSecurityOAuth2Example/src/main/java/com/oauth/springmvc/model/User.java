@@ -1,30 +1,42 @@
 package com.oauth.springmvc.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "user", schema = "oauth")
 public class User {
 
-	
+	@SuppressWarnings("unused")
+	private static final long serialVersionUID = -2343243243242432341L;
+
+	@Id
+	@GeneratedValue
 	private long id;
-	
-	
+
+	@Column(name = "name")
 	private String name;
-	
-	
+
+	@Column(name = "age")
 	private int age;
-	
+
+	@Column(name = "salary")
 	private double salary;
 
-	public User(){
-		id=0;
+	public User() {
+		id = 0;
 	}
-	
-	public User(long id, String name, int age, double salary){
+
+	public User(long id, String name, int age, double salary) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
 		this.salary = salary;
 	}
-	
+
 	public long getId() {
 		return id;
 	}
@@ -81,9 +93,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", age=" + age
-				+ ", salary=" + salary + "]";
+		return "User [id=" + id + ", name=" + name + ", age=" + age + ", salary=" + salary + "]";
 	}
-
 
 }

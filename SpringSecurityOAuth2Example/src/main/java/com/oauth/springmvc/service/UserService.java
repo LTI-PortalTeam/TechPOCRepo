@@ -4,24 +4,20 @@ import java.util.List;
 
 import com.oauth.springmvc.model.User;
 
-
-
 public interface UserService {
-	
+
 	User findById(long id);
-	
-	User findByName(String name);
-	
-	void saveUser(User user);
-	
+
+	long saveUser(User user);
+
 	void updateUser(User user);
-	
+
 	void deleteUserById(long id);
 
-	List<User> findAllUsers(); 
-	
+	List<User> findAllUsers();
+
 	void deleteAllUsers();
-	
+
 	public boolean isUserExist(User user);
-	
+
 }

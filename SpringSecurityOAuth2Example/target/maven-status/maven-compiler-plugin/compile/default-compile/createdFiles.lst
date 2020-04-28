@@ -4,10 +4,13 @@ com\oauth\springmvc\service\UserService.class
 com\oauth\springmvc\service\UserServiceImpl.class
 com\oauth\springmvc\model\AuthTokenInfo.class
 com\oauth\springmvc\controller\HelloWorldRestController.class
+com\oauth\springmvc\model\UserAuth.class
+com\oauth\springmvc\dao\UserDaoImpl.class
 com\oauth\springmvc\security\OAuth2SecurityConfiguration.class
 com\oauth\springmvc\configuration\CORSFilter.class
 com\oauth\springmvc\configuration\HelloWorldConfiguration.class
 com\oauth\springmvc\security\AuthorizationServerConfiguration.class
 com\oauth\springmvc\security\ResourceServerConfiguration.class
 com\oauth\springmvc\security\MethodSecurityConfig.class
+com\oauth\springmvc\dao\UserDao.class
 com\oauth\springmvc\configuration\HelloWorldInitializer.class
