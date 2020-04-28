@@ -38,7 +38,7 @@ public class TopicCreation {
             connection.start();     
              
             // Publish
-            String payload = "Important Task";
+            String payload = "New task available";
             Message msg = session.createTextMessage(payload);
             MessageProducer producer = session.createProducer(topic);
             System.out.println("Sending text '" + payload + "'");
