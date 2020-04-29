@@ -71,4 +71,17 @@ public class JobConfiguration {
 				.next(step3())
 				.build();
 	}
+	
+	@Bean
+	public Job transitionJobOnCompletion() {
+		System.out.println("Executing transition job 2");
+		return jbf.get("transitionJob2")
+				.start(step1())
+				.on("COMPLETED").to(step2())
+				.from(step2())
+				.on("COMPLETED").stopAndRestart(step3()) // stop executing in run 1. will resume from here when restarted
+				.from(step3())
+				.end()
+				.build();
+	}
 }
