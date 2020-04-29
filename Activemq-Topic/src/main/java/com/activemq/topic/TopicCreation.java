@@ -17,8 +17,10 @@ import org.apache.activemq.broker.BrokerService;
  
 public class TopicCreation {
     public static void main(String[] args) throws URISyntaxException, Exception {
-        BrokerService broker = BrokerFactory.createBroker(new URI("broker:(tcp://localhost:61616)"));
-        broker.start();
+		/*
+		 * BrokerService broker = BrokerFactory.createBroker(new
+		 * URI("broker:(tcp://localhost:61616)")); broker.start();
+		 */
         Connection connection = null;
         try {
             // Producer
@@ -34,6 +36,10 @@ public class TopicCreation {
             // Consumer2 subscribes to customerTopic
             MessageConsumer consumer2 = session.createConsumer(topic);
             consumer2.setMessageListener(new ConsumerMessageListener("Consumer2"));
+            
+            // Consumer3 subscribes to customerTopic
+            MessageConsumer consumer3 = session.createConsumer(topic);
+            consumer3.setMessageListener(new ConsumerMessageListener("Consumer3"));
              
             connection.start();     
              
@@ -50,7 +56,7 @@ public class TopicCreation {
             if (connection != null) {
                 connection.close();
             }
-            broker.stop();
+//            broker.stop();
         }
     }
 }

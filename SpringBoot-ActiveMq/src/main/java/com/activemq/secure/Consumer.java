@@ -25,7 +25,7 @@ public class Consumer {
             connection.start();
 
             Session session = connection.createSession(NON_TRANSACTED, Session.CLIENT_ACKNOWLEDGE);
-            Queue destination = session.createQueue("check?consumer.dispatchAsync=false");
+            Queue destination = session.createQueue("P2?consumer.dispatchAsync=false");
             MessageConsumer consumer = session.createConsumer(destination);
 
             int i = 0;
