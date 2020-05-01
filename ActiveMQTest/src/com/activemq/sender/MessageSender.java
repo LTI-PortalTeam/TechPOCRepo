@@ -13,10 +13,8 @@ import org.apache.activemq.ActiveMQConnectionFactory;
  
 public class MessageSender {
      
-    //URL of the JMS server. DEFAULT_BROKER_URL will just mean that JMS server is on localhost
     private static String url = ActiveMQConnection.DEFAULT_BROKER_URL;
      
-    // default broker URL is : tcp://localhost:61616"
     private static String subject = "KARANQUEUE"; // Queue Name.You can create any/many queue names as per your requirement. 
      
     public static void main(String[] args) throws JMSException {        

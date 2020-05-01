@@ -17,17 +17,21 @@ import org.apache.activemq.broker.BrokerService;
  
 public class TopicCreation {
     public static void main(String[] args) throws URISyntaxException, Exception {
-		/*
-		 * BrokerService broker = BrokerFactory.createBroker(new
-		 * URI("broker:(tcp://localhost:61616)")); broker.start();
-		 */
+		
+		 // BrokerService broker = BrokerFactory.createBroker(new URI("broker:(tcp://localhost:61616)")); 
+		  
+		  BrokerService broker = new BrokerService();
+		  broker.addConnector("tcp://localhost:61616");
+		  
+		  broker.start();
+		 
         Connection connection = null;
         try {
             // Producer
             ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
             connection = connectionFactory.createConnection();
             Session session = connection.createSession(false,Session.AUTO_ACKNOWLEDGE);
-            Topic topic = session.createTopic("customerTopic");     
+            Topic topic = session.createTopic("customerTopicNew");     
              
             // Consumer1 subscribes to customerTopic
             MessageConsumer consumer1 = session.createConsumer(topic);

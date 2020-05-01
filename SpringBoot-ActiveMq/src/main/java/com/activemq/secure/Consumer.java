@@ -8,7 +8,7 @@ public class Consumer {
 
     private static final String BROKER_URL = "tcp://localhost:61616";
     private static final Boolean NON_TRANSACTED = false;
-    private static final long TIMEOUT = 20000;
+    private static final long TIMEOUT = 300000;
 
     public static void main(String[] args) {
         String url = BROKER_URL;
@@ -25,7 +25,7 @@ public class Consumer {
             connection.start();
 
             Session session = connection.createSession(NON_TRANSACTED, Session.CLIENT_ACKNOWLEDGE);
-            Queue destination = session.createQueue("P2?consumer.dispatchAsync=false");
+            Queue destination = session.createQueue("Com?consumer.dispatchAsync=false");
             MessageConsumer consumer = session.createConsumer(destination);
 
             int i = 0;
