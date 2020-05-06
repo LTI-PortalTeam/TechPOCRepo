@@ -18,33 +18,33 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableBatchProcessing
 public class FlowLastConfiguration {
-	
-	@Autowired
-	private JobBuilderFactory jbf;
-	
-	@Autowired
-	private StepBuilderFactory sbf;
-	
-	@Bean
-	public Step myLastStep() {
-		return sbf.get("myStep").tasklet(new Tasklet() {
-
-			@Override
-			public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-				System.out.println("Spring batch my last Step executed in a flow");
-				return RepeatStatus.FINISHED;
-			}
-			
-		}).build();
-	}
-	
-	@Bean
-	public Job flowLastJob(Flow flow) {
-		System.out.println("Executing transition job flow last");
-		return jbf.get("flowLastJob")
-				.start(myLastStep())	
-				.on("COMPLETED").to(flow)
-				.end()
-				.build();
-	}
+//	
+//	@Autowired
+//	private JobBuilderFactory jbf;
+//	
+//	@Autowired
+//	private StepBuilderFactory sbf;
+//	
+//	@Bean
+//	public Step myLastStep() {
+//		return sbf.get("myStep").tasklet(new Tasklet() {
+//
+//			@Override
+//			public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
+//				System.out.println("Spring batch my last Step executed in a flow");
+//				return RepeatStatus.FINISHED;
+//			}
+//			
+//		}).build();
+//	}
+//	
+//	@Bean
+//	public Job flowLastJob(Flow flow) {
+//		System.out.println("Executing transition job flow last");
+//		return jbf.get("flowLastJob")
+//				.start(myLastStep())	
+//				.on("COMPLETED").to(flow)
+//				.end()
+//				.build();
+//	}
 }

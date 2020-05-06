@@ -18,33 +18,33 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableBatchProcessing
 public class FlowFirstConfiguration {
-	
-	@Autowired
-	private JobBuilderFactory jbf;
-	
-	@Autowired
-	private StepBuilderFactory sbf;
-	
-	@Bean
-	public Step myStep() {
-		return sbf.get("myStep").tasklet(new Tasklet() {
-
-			@Override
-			public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-				System.out.println("Spring batch my first Step executed in a flow");
-				return RepeatStatus.FINISHED;
-			}
-			
-		}).build();
-	}
-	
-	@Bean
-	public Job flowFirstJob(Flow flow) {
-		System.out.println("Executing transition job flow first");
-		return jbf.get("flowFirstJob")
-				.start(flow)
-				.next(myStep())
-				.end()
-				.build();
-	}
+//	
+//	@Autowired
+//	private JobBuilderFactory jbf;
+//	
+//	@Autowired
+//	private StepBuilderFactory sbf;
+//	
+//	@Bean
+//	public Step myStep() {
+//		return sbf.get("myStep").tasklet(new Tasklet() {
+//
+//			@Override
+//			public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
+//				System.out.println("Spring batch my first Step executed in a flow");
+//				return RepeatStatus.FINISHED;
+//			}
+//			
+//		}).build();
+//	}
+//	
+//	@Bean
+//	public Job flowFirstJob(Flow flow) {
+//		System.out.println("Executing transition job flow first");
+//		return jbf.get("flowFirstJob")
+//				.start(flow)
+//				.next(myStep())
+//				.end()
+//				.build();
+//	}
 }
