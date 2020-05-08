@@ -1,0 +1,6 @@
+<div>
+  <!-- <h2>Structural Directives  {{title}}!</h2> -->
+ 
+  <h2>{{message}}</h2>
+</div>
+<app-component-interaction   (childEvent)="message=$event" [parentData]="name"></app-component-interaction>
