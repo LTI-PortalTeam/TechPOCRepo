@@ -24,12 +24,16 @@ public class Producer {
 
 			connection = connectionFactory.createConnection(/* "admin", "password" */);
             connection.start();
-
+            
+            
             Session session = connection.createSession(NON_TRANSACTED, Session.CLIENT_ACKNOWLEDGE);
            // Destination destination = session.createQueue("CompositeQueue");
            // Destination destination1 = session.createQueue("kk2");
             Destination destination = session.createQueue("Com");
             MessageProducer producer = session.createProducer(destination);
+            
+            
+            
             
 
             for (int i = 0; i < NUM_MESSAGES_TO_SEND; i++) {

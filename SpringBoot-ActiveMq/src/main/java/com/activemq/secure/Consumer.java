@@ -1,6 +1,7 @@
 package com.activemq.secure;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.command.ActiveMQQueue;
 
 import javax.jms.*;
 
@@ -24,9 +25,17 @@ public class Consumer {
             connection = connectionFactory.createConnection();
             connection.start();
 
+            
             Session session = connection.createSession(NON_TRANSACTED, Session.CLIENT_ACKNOWLEDGE);
-            Queue destination = session.createQueue("Com?consumer.dispatchAsync=false");
-            MessageConsumer consumer = session.createConsumer(destination);
+            
+            Queue queue = new ActiveMQQueue("TEST.QUEUE?consumer.exclusive=true");
+            MessageConsumer consumer = session.createConsumer(queue);
+            
+            
+			/*
+			 * Queue destination = session.createQueue("Com?consumer.dispatchAsync=false");
+			 * MessageConsumer consumer = session.createConsumer(destination);
+			 */
 
             int i = 0;
             while (true) {
