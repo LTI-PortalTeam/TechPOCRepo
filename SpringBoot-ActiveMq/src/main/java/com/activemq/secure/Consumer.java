@@ -28,6 +28,7 @@ public class Consumer {
             
             Session session = connection.createSession(NON_TRANSACTED, Session.CLIENT_ACKNOWLEDGE);
             
+            //for exclusive consumer
             Queue queue = new ActiveMQQueue("TEST.QUEUE?consumer.exclusive=true");
             MessageConsumer consumer = session.createConsumer(queue);
             
