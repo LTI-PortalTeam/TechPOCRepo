@@ -17,10 +17,13 @@ package com.spring.springBatch.model;
 
 import java.util.Date;
 
+import org.springframework.batch.item.ResourceAware;
+import org.springframework.core.io.Resource;
+
 /**
  * @author pgoel
  */
-public class Customer {
+public class Customer implements ResourceAware {
 
 	private final long id;
 
@@ -29,12 +32,49 @@ public class Customer {
 	private final String lastName;
 
 	private final Date birthdate;
+	
+	private Resource resource;
 
 	public Customer(long id, String firstName, String lastName, Date birthdate) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthdate = birthdate;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public long getId() {
+		return id;
+	}
+
+	/**
+	 * @return the firstName
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
+
+	/**
+	 * @return the lastName
+	 */
+	public String getLastName() {
+		return lastName;
+	}
+
+	/**
+	 * @return the birthdate
+	 */
+	public Date getBirthdate() {
+		return birthdate;
+	}
+
+	/**
+	 * @return the resource
+	 */
+	public Resource getResource() {
+		return resource;
 	}
 
 	@Override
@@ -44,6 +84,12 @@ public class Customer {
 				", firstName='" + firstName + '\'' +
 				", lastName='" + lastName + '\'' +
 				", birthdate=" + birthdate +
+				", from " + resource.getDescription() +
 				'}';
+	}
+
+	@Override
+	public void setResource(Resource resource) {
+		this.resource = resource;
 	}
 }
