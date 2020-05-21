@@ -54,6 +54,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.oxm.xstream.XStreamMarshaller;
 
 import com.spring.springBatch.domain.CustomerClassifier;
@@ -302,7 +303,7 @@ public class JobConfiguration {
 	
 	@Bean
 	public Step step1() throws Exception {
-		return stepBuilderFactory.get("step29").<Customer, Customer>chunk(10)
+		return stepBuilderFactory.get("step52").<Customer, Customer>chunk(10)
 				.reader(pagingItemReader())
 				.processor(compositeItemProcessor())
 				.writer(classifierTtemWriter())
@@ -310,6 +311,17 @@ public class JobConfiguration {
 				.stream(jsonFlatFileItemWriter())// 
 				.build();
 	}
+	
+	// Threaded environment
+//	@Bean
+//	public Step step1() throws Exception {
+//		return stepBuilderFactory.get("step32")
+//				.<Customer, Customer>chunk(1000)
+//				.reader(pagingItemReader())
+//				.writer(customerItemWriter())
+//				.taskExecutor(new SimpleAsyncTaskExecutor())
+//				.build();
+//	}
 	
 //	@Bean
 //	public Step step1() {
@@ -323,7 +335,7 @@ public class JobConfiguration {
 
 	@Bean
 	public Job job() throws Exception {
-		return jobBuilderFactory.get("job").start(step1()).build();
+		return jobBuilderFactory.get("job890").start(step1()).build();
 	}
 
 	@Bean

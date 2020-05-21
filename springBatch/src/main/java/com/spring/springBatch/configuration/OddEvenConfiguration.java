@@ -72,7 +72,7 @@ public class OddEvenConfiguration {
 
 	@Bean
 	public Job job() {
-		return jbf.get("job123")
+		return jbf.get("job12313")
 				.start(startStep())
 				.next(decider())
 				.from(decider()).on("ODD").to(oddStep())

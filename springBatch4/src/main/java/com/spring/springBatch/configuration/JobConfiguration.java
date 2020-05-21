@@ -78,6 +78,19 @@ public class JobConfiguration {
 				.retryLimit(15)
 				.build();
 	}
+//	
+//	@Bean
+//	public Step step1() {
+//		return stepBuilderFactory.get("step")
+//				.<String, String>chunk(10)
+//				.reader(reader())
+//				.processor(processor(null))
+//				.writer(writer(null))
+//				.faultTolerant()
+//				.skip(CustomRetryableException.class)
+//				.skipLimit(15)
+//				.build();
+//	}
 
 	@Bean
 	public Job job() {
