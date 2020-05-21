@@ -13,7 +13,7 @@ public class RetryItemProcessor implements ItemProcessor<String, String> {
 	@Override
 	public String process(String item) throws Exception {
 		System.out.println("processing item " + item);
-		if(retry && item.equalsIgnoreCase("42")) {// Fail 5 times on item #42
+		if(retry && item.equalsIgnoreCase("33")) {// Fail 5 times on item #42
 			attemptCount++;
 
 			if(attemptCount >= 5) {
@@ -22,8 +22,8 @@ public class RetryItemProcessor implements ItemProcessor<String, String> {
 				return String.valueOf(Integer.valueOf(item) * -1);
 			}
 			else {
-				System.out.println("Processing of item " + item + " failed");
-				throw new CustomRetryableException("Process failed.  Attempt:" + attemptCount);
+				System.out.println("Processing of item - " + item + " failed");
+				throw new CustomRetryableException("Processor failed.  Attempt#" + attemptCount);
 			}
 		}
 		else {

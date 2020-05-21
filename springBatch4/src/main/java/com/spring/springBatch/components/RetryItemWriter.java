@@ -16,7 +16,7 @@ public class RetryItemWriter implements ItemWriter<String> {
 	public void write(List<? extends String> items) throws Exception {
 		for (String item : items) {
 			System.out.println("writing item " + item);
-			if(retry && item.equalsIgnoreCase("-84")) { // Fail 5 times on item #84
+			if(retry && item.equalsIgnoreCase("-87")) { // Fail 5 times on item #84
 				attemptCount++;
 
 				if(attemptCount >= 5) {
@@ -25,8 +25,8 @@ public class RetryItemWriter implements ItemWriter<String> {
 					System.out.println(item);
 				}
 				else {
-					System.out.println("Writing of item " + item + " failed");
-					throw new CustomRetryableException("Write failed.  Attempt:" + attemptCount);
+					System.out.println("Writing of item - " + item + " failed");
+					throw new CustomRetryableException("Writer failed.  Attempt#" + attemptCount);
 				}
 			}
 			else {
